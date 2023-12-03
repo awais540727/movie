@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/home/Home";
+import Movie from "./pages/movie/Movie";
+import About from "./pages/about/About";
+import NavBar from "./components/navbar/NavBar";
+import Footer from "./components/footer/Footer";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import MovieDetails from "./pages/movie/MovieDetails";
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <NavBar/>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/movies/:type" element={<Movie />} />
+        <Route path="/movie/:id" element={<MovieDetails />} />
+      </Routes>
+      <Footer/>
+    </>
   );
-}
+};
 
 export default App;
