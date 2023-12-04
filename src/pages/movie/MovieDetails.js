@@ -20,17 +20,50 @@ const MovieDetails = () => {
   useEffect(() => {
     getMovieDetails();
   }, []);
+
+  console.log(movieDetails);
   return (
     <>
-      <div className="container">
-        <div className="top-img">
-          <img
-            src={`https://image.tmdb.org/t/p/original${
-              movieDetails ? movieDetails.poster_path : ""
-            }`}
-            alt=""
-            style={{ width: "500px", height: "350px" }}
-          />
+      <div className="container mt-5 mb-5 m-3">
+        <div className="row">
+          <div className="col-lg-5 col-md-12 col-sm-12 col-12 mt-3 mb-3 text-center">
+            <div className="top-img">
+              <img
+                src={`https://image.tmdb.org/t/p/original${
+                  movieDetails ? movieDetails.poster_path : ""
+                }`}
+                alt=""
+                className="rounded"
+                style={{ width: "400px", height: "600px" }}
+              />
+            </div>
+          </div>
+          <div className="col-lg-7 col-md-12 col-sm-12 col-12 mt-3 mb-3 ">
+            <h3 className="mt-3 mb-3 text-center">
+              {movieDetails ? movieDetails.title : ""}
+            </h3>
+            <h5 className="mt-3 mb-3 text-center text-secondary">
+              {movieDetails ? movieDetails.tagline : ""}
+            </h5>
+            <div className="d-flex ms-4">
+              {movieDetails?.genres.map((movie) => (
+                <>
+                  <b className="mt-3 mb-3 ms-4 bg-danger p-1 rounded">
+                    {movie.name}
+                  </b>
+                </>
+              ))}
+            </div>
+            <p className="mt-3 mb-3">
+              {movieDetails ? movieDetails.overview : ""}
+            </p>
+            <p className="mt-3 mb-3">
+              Average Rating:
+              {movieDetails
+                ? movieDetails.vote_count + " / " + movieDetails.vote_average
+                : ""}
+            </p>
+          </div>
         </div>
       </div>
     </>

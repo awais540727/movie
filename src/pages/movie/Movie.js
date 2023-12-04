@@ -38,7 +38,7 @@ const Movie = () => {
         <div className="row mt-4 mb-4">
           {movies.map((movie) => (
             <>
-              <div className="col-lg-3 col-md-4 col-sm-12 col-12">
+              <div className="col-lg-3 col-md-4 col-sm-12 col-12 text-center">
                 <MovieCard movie={movie} />
               </div>
             </>

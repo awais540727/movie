@@ -13,10 +13,12 @@ const MovieCard = ({ movie }) => {
             style={{ width: "300px", height: "350px" }}
             className="mt-2 mb-2 rounded"
           />
-          <h4 style={{ fontSize: "20px" }} className="mt-3 text-start">
+          <div className="row ms-3">
+            <h4 style={{ fontSize: "20px" }} className="mt-3">
             {movie.title}
           </h4>
-          <div className="row">
+          </div>
+          <div className="row ms-3 me-5">
             <div className="col-6">
               <p style={{ fontSize: "16px" }} className="release">
                 {movie.release_date}
